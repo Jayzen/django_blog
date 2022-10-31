@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}新建文章{% endblock %}
+
+{% block content %}
+    <ul class="list-group list-group-flush">
+        <a href="{% url 'articles' %}">文章列表</a>
+    </ul></br>
+
+    <form method="post" action="/articles/new">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label class="form-label">标题</label>
+          <input  class="form-control" name="title" value="">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">内容</label>
+          <textarea class="form-control" name="content" rows="4", value=""></textarea>
+        </div>
+        <button type="submit" name="save" class="btn btn-primary">新建</button>
+    </form>
+
+{% endblock content %}

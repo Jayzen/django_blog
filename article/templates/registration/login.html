@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block title %}登陆{% endblock %}
+{% load crispy_forms_tags %} {% block content %}
+<form method="post">
+  {% csrf_token %}{{form|crispy}}
+  <p>没有账户？ <a href="/sign-up">注册</a>!</p>
+  <button type="submit" class="btn btn-success">登陆</button>
+</form>
+{% endblock %}

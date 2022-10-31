@@ -1,0 +1,16 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{% url 'articles' %}">文章列表</a> | <a href="{% url 'article_new' %}">新建文章</a>
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{article.title}}</br>
+    {{article.content}}
+    <button type="submit" name="save">更新</button>
+</form>
+
+{% endblock content %}

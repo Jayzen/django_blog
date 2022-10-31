@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}文章列表{% endblock %}
+
+{% block content %}
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">文章列表 | <a href="{% url 'article_new' %}">新建文章</a></li>
+    {% for article in articles %}
+        <li class="list-group-item">{{article.title}}
+            | <a href="{% url 'article' article.id %}">显示</a>
+            | <a href="{% url 'article_edit' article.id%}">编辑</a>
+            | <a href="{% url 'article_delete' article.id%}">删除</a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
+
+
+
